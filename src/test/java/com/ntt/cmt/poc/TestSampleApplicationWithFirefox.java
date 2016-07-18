@@ -1,7 +1,7 @@
 package com.ntt.cmt.poc;
 
 import java.util.concurrent.TimeUnit;
-import static org.junit.Assert.*;
+import org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,15 +14,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestSampleApplicationWithFirefox {
 
-	private static ChromeDriver driver;
+	private static FirefoxDriver driver;
 	WebElement element;
 	
 	@Before
 	public void setUp() {
-		//driver = new FirefoxDriver();		
-		System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
-		System.setProperty("webdriver.chrome.logfile", "testlog.txt");
-		driver = new ChromeDriver();	
+		driver = new FirefoxDriver();		
+		//System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
+		//System.setProperty("webdriver.chrome.logfile", "testlog.txt");
+		//driver = new ChromeDriver();	
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.MILLISECONDS);
 	}
 	
@@ -33,7 +33,6 @@ public class TestSampleApplicationWithFirefox {
 
 	@Test
 	public void testWelcomeScreen() throws InterruptedException {
-		System.out.println("Garima");
 		System.out.println("Start test " + new Object(){}.getClass().getEnclosingMethod().getName());
 		driver.get("http://localhost:8080/SampleApplication-1.0-SNAPSHOT/");
 		//driver.navigate().to("http://localhost:8080/SampleApplication-1.0-SNAPSHOT/");
